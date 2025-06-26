@@ -1,6 +1,7 @@
 package arterios.content;
 
 import arc.graphics.*;
+import arterios.world.blocks.power.*;
 import mindustry.content.*;
 import mindustry.entities.bullet.*;
 import mindustry.entities.part.*;
@@ -31,6 +32,8 @@ public class ArteriosBlocks {
       crystalSodalite,
     // Turrets
     jolt, kindle,
+    // Power
+    coilNode,
     // Walls
     tinWall, tinWallLarge;
 
@@ -244,6 +247,19 @@ public class ArteriosBlocks {
                         }}
                 );
             }};;
+        }};
+
+        // Power
+        coilNode = new CoilNode("coil-node"){{
+            requirements(Category.power, with(ArteriosItems.cadmium, 2, ArteriosItems.tin, 6));
+            maxNodes = 8;
+            laserRange = 6;
+            buildCostMultiplier = 2.5f;
+
+            laserColor2 = Color.valueOf("3d8d91");
+
+            consumesPower = true;
+            consumePower(2/60f);
         }};
       
         // Walls
