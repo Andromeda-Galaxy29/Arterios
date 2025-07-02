@@ -1,6 +1,7 @@
 package arterios.content;
 
 import arc.graphics.*;
+import arterios.world.blocks.distribution.*;
 import arterios.world.blocks.power.*;
 import mindustry.content.*;
 import mindustry.entities.bullet.*;
@@ -32,6 +33,8 @@ public class ArteriosBlocks {
       crystalSodalite,
     // Turrets
     jolt, kindle,
+    // Distribution
+    itemPassage,
     // Power
     coilNode,
     // Walls
@@ -247,6 +250,17 @@ public class ArteriosBlocks {
                         }}
                 );
             }};;
+        }};
+
+        // Distribution
+        itemPassage = new ShadedDuct("item-passage"){{
+            requirements(Category.distribution, with(ArteriosItems.cadmium, 1));
+            alwaysUnlocked = true;
+
+            health = 45;
+            speed = 6f;
+            buildCostMultiplier = 2f;
+            itemCapacity = 2;
         }};
 
         // Power
