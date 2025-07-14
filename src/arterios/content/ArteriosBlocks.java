@@ -12,6 +12,7 @@ import mindustry.type.*;
 import mindustry.world.*;
 import mindustry.world.blocks.defense.*;
 import mindustry.world.blocks.defense.turrets.*;
+import mindustry.world.blocks.distribution.*;
 import mindustry.world.blocks.environment.*;
 import mindustry.world.blocks.storage.*;
 import mindustry.world.draw.*;
@@ -35,7 +36,7 @@ public class ArteriosBlocks {
     // Turrets
     jolt, kindle,
     // Distribution
-    itemPassage,
+    itemPassage, passageJunction, passageRouter,
     // Power
     coilNode,
     // Walls
@@ -263,7 +264,22 @@ public class ArteriosBlocks {
             health = 45;
             speed = 6f;
             buildCostMultiplier = 2f;
-            itemCapacity = 2;
+        }};
+
+        passageJunction = new DuctJunction("passage-junction"){{
+            requirements(Category.distribution, with(ArteriosItems.cadmium, 2));
+
+            health = 45;
+            speed = 6f;
+            buildCostMultiplier = 2f;
+        }}; ((Duct)itemPassage).junctionReplacement = passageJunction;
+
+        passageRouter = new TransparentDuctRouter("passage-router"){{
+            requirements(Category.distribution, with(ArteriosItems.cadmium, 3));
+
+            health = 45;
+            speed = 6f;
+            buildCostMultiplier = 2f;
         }};
 
         // Power

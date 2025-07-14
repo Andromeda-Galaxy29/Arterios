@@ -41,7 +41,8 @@ public class ShadedDuct extends Duct {
         Draw.scl(bits[1], bits[2]);
         Draw.alpha(0.5f);
         Draw.rect(botRegions[bits[0]], plan.drawx(), plan.drawy(), plan.rotation * 90);
-        Draw.reset();
+        Draw.scl();
+        Draw.color();
 
         int blendbits2 = bits[0];
         if(blendbits2 == 1 && (bits[1] != 1 || bits[2] != 1)){ //Flips corner ducts
@@ -55,7 +56,7 @@ public class ShadedDuct extends Duct {
 
     @Override
     public TextureRegion[] icons(){
-        return new TextureRegion[]{Core.atlas.find("duct-bottom"), sideRegions[0][0]};
+        return new TextureRegion[]{botRegions[0], sideRegions[0][0]};
     }
 
     public class ShadedDuctBuild extends Duct.DuctBuild {
